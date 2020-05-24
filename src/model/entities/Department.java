@@ -67,7 +67,7 @@ public class Department implements Serializable
 		return true;
 	}
 	
-	// TO STRING
+	// TOSTRING
 
 	@Override
 	public String toString() {
