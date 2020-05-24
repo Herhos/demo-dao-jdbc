@@ -1,5 +1,6 @@
 package model.dao;
 
+import db.DB;
 import model.dao.impl.SellerDaoJDBC;
 
 /* A classe DaoFactory vai expor um método que retorna
@@ -10,6 +11,6 @@ public class DaoFactory
 {
 	public static SellerDao createSellerDao()
 	{
-		return new SellerDaoJDBC();
+		return new SellerDaoJDBC(DB.getConnection());
 	}
 }
