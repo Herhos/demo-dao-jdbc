@@ -113,10 +113,31 @@ public class SellerDaoJDBC implements SellerDao
 		}
 	}	
 
+	// MÉTODO DE EXCLUSÃO DE DADOS
+	
 	@Override
-	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+	public void deleteById(Integer id)
+	{
+		PreparedStatement st = null;
 		
+		try
+		{
+			st = conn.prepareStatement
+				(
+					"DELETE FROM seller WHERE Id = ?"	
+				);
+			
+			st.setInt(1, id);
+			st.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			throw new DbException(e.getMessage());
+		}
+		finally
+		{
+			DB.closeStatement(st);
+		}
 	}
 
 	// MÉTODO PARA BUSCA DE VENDEDOR PELO ID
