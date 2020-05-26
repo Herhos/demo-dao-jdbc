@@ -1,6 +1,7 @@
 package model.dao;
 
 import db.DB;
+import model.dao.impl.DepartmentDaoJDBC;
 import model.dao.impl.SellerDaoJDBC;
 
 /* A classe DaoFactory vai expor um método que retorna
@@ -13,4 +14,11 @@ public class DaoFactory
 	{
 		return new SellerDaoJDBC(DB.getConnection());
 	}
+	
+	public static DepartmentDao createDepartmentDao()
+	{
+		return new DepartmentDaoJDBC(DB.getConnection());
+	}
 }
+
+// CONFERIDO - SEM ERROS
